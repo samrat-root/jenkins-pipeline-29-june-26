@@ -5,7 +5,7 @@ pipeliine {
 
         stage('Build') {
             steps{
-                echo 'Building the Application Code'
+                echo 'Building the Application Code in param branch'
             }
         }
     }

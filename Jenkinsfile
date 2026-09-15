@@ -23,6 +23,7 @@ pipeline {
         stage('Deploy') {
             steps{
                 echo 'Deploying the Application '
+                echo 'Building the Application Code in param branch'
             }
         }
     }

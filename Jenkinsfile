@@ -3,13 +3,18 @@ pipeline {
 
     stages{
 
-        stage('checkout'){
+        stage('Checkout'){
             steps{
-                echo('Checking out the code')
+                git 'https://github.com/samrat-root/jenkins-pipeline-29-june-26.git'
             }
         }
 
         stage('Build') {
+            when{
+                expression{
+                    BRANCH_NAME == "main"
+                }
+            }
             steps{
                 echo 'Building the Application Code by Param'
             }

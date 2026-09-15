@@ -10,6 +10,11 @@ pipeline {
         }
 
         stage('Build') {
+            when{
+                expression{
+                    BRANCH_NAME == "main"
+                }
+            }
             steps{
                 echo 'Building the Application Code by Param'
             }

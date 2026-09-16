@@ -2,6 +2,7 @@ pipeline {
     agent any
     environment {
         FINAL_VERSION = '1.2.3'
+        SERVER_CREDS = credentials('demon-server-credentials')
     }
 
     stages{
@@ -13,11 +14,6 @@ pipeline {
         }
 
         stage('Build') {
-            when{
-                expression{
-                    BRANCH_NAME == 'param' || BRANCH_NAME == 'main'
-                }
-            }
             steps{
                 echo 'Building the Application Code by Param'
             }
@@ -33,7 +29,7 @@ pipeline {
         stage('Deploy') {
             steps{
                 echo 'Deploying the Application '
-                echo 'Building the Application Code in param branch'
+                echo "Deployed with ${SERVER_CREDS}"
             }
         }
     }

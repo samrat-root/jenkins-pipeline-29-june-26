@@ -26,7 +26,7 @@ pipeline {
         stage('Test') {
             steps{
                 echo 'Testing the Project new'
-                echo 'The Testing Tool version will be ${FINAL_VERSION}'
+                echo "The Testing Tool version will be ${FINAL_VERSION}"
             }
         }
 

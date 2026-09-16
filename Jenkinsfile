@@ -30,7 +30,7 @@ pipeline {
             steps{
                 echo 'Deploying the Application '
                 wihtCredentials([
-                    usernamePassword(credentials: 'demo-servrer-cerdentials', usernameVariable: 'USER', passwordVariable: "PWD')
+                    usernamePassword(credentials: 'demo-servrer-cerdentials', usernameVariable: 'USER', passwordVariable: 'PWD')
                ]) {
                     echo "The Credentials are: ${USER} and ${PWD}"
                     }       

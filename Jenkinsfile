@@ -1,6 +1,6 @@
 pipeline {
     agent any
-    enviroment {
+    environment {
         FINAL_VERSION = '1.2.2'
     }
 

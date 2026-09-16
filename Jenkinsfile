@@ -1,5 +1,8 @@
 pipeline {
     agent any
+    enviroment {
+        FINAL_VERSION = '1.2.2'
+    }
 
     stages{
 
@@ -12,7 +15,7 @@ pipeline {
         stage('Build') {
             when{
                 expression{
-                    BRANCH_NAME == 'main'
+                    BRANCH_NAME == 'param' || BRANCH_NAME == 'main'
                 }
             }
             steps{
@@ -22,7 +25,8 @@ pipeline {
 
         stage('Test') {
             steps{
-                echo 'Testing the Project'
+                echo 'Testing the Project new'
+                echo 'The Testing Tool version will be ${FINAL_VERSION}
             }
         }
 

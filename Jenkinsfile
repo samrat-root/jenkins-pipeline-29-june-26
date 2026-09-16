@@ -12,7 +12,7 @@ pipeline {
         stage('Build') {
             when{
                 expression{
-                    BRANCH_NAME == "param"
+                    BRANCH_NAME == "param" || BRANCH_NAME == 'main'
                 }
             }
             steps{

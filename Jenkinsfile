@@ -1,18 +1,21 @@
 pipeline {
     agent any
+    environment {
+        FINAL_VERSION = '1.2.3'
+    }
 
     stages{
 
         stage('Checkout'){
             steps{
-                git branch: 'main', url: 'https://github.com/samrat-root/jenkins-pipeline-29-june-26.git'
+                checkout scm
             }
         }
 
         stage('Build') {
             when{
                 expression{
-                    BRANCH_NAME == "main"
+                    BRANCH_NAME == 'param' || BRANCH_NAME == 'main'
                 }
             }
             steps{
@@ -22,7 +25,8 @@ pipeline {
 
         stage('Test') {
             steps{
-                echo 'Testing the Project'
+                echo 'Testing the Project new'
+                echo "The Testing Tool version will be ${FINAL_VERSION}"
             }
         }
 

@@ -5,7 +5,7 @@ pipeline {
 
         stage('Checkout'){
             steps{
-                git 'https://github.com/samrat-root/jenkins-pipeline-29-june-26.git'
+                git branch: 'main', url: 'https://github.com/samrat-root/jenkins-pipeline-29-june-26.git'
             }
         }
 
@@ -22,7 +22,7 @@ pipeline {
 
         stage('Test') {
             steps{
-                echo 'Testing the project'
+                echo 'Testing the Project'
             }
         }
 

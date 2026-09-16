@@ -2,7 +2,7 @@ pipeline {
     agent any
     environment {
         FINAL_VERSION = '1.2.3'
-        SERVER_CREDS = credentials('demon-server-credentials')
+        SERVER_CREDS = credentials('demo-server-credentials')
     }
 
     stages{

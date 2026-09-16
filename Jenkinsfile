@@ -29,7 +29,12 @@ pipeline {
         stage('Deploy') {
             steps{
                 echo 'Deploying the Application '
-                echo "Deployed with ${SERVER_CREDS}"
+                wihtCredentials([
+                    usernamePassword(credentials: 'demo-servrer-cerdentials', usernameVariable: 'USER', passwordVarialble: "PWD')
+               ]) {
+                    echo "The Credentials are: ${USER} and ${PWD}"
+                    }       
+                                     
             }
         }
     }

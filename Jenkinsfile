@@ -1,7 +1,7 @@
 pipeline {
     agent any
     environment {
-        FINAL_VERSION = '1.2.2'
+        FINAL_VERSION = '1.2.3'
     }
 
     stages{

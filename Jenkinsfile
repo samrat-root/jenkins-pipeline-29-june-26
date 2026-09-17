@@ -1,6 +1,6 @@
 pipeline {
     agent any
-    environment {
+    parameters {
         string(name: 'FINAL_VERSION', defaultValue: '1.1.1',description: "Enter the Version Number: ')
     }
 
@@ -21,7 +21,7 @@ pipeline {
         stage('Test') {
             steps{
                 echo 'Testing the Project new'
-                echo "The Testing Tool version will be ${FINAL_VERSION}"
+                echo "The Testing Tool version will be ${params.FINAL_VERSION}"
             }
         }
 

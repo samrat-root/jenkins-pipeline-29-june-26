@@ -29,11 +29,7 @@ pipeline {
         stage('Deploy') {
             when {
                 expression{
-<<<<<<< HEAD
                     params['Test-Approval'] == true
-=======
-                    params['Test-Approval'] = true
->>>>>>> 85655b2ab9c48cfc18a0feae52f20a13cc645c8c
                 }
             }
             steps{

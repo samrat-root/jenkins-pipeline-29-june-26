@@ -29,7 +29,7 @@ pipeline {
         stage('Deploy') {
             when {
                 expression{
-                    params.Test-Approval = true
+                    params['Test-Approval'] = true
                 }
             }
             steps{

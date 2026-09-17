@@ -34,8 +34,6 @@ pipeline {
             }
             steps{
                 echo 'the Project was deployed with Approval'
-            }
-            steps{
                 echo 'Deploying the Application '
                 withCredentials([
                     usernamePassword(credentialsId: 'demo-server-credentials', usernameVariable: 'USER', passwordVariable: 'PWD')

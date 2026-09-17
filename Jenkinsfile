@@ -1,8 +1,7 @@
 pipeline {
     agent any
     environment {
-        FINAL_VERSION = '1.2.3'
-        SERVER_CREDS = credentials('demo-server-credentials')
+        string(name: 'FINAL_VERSION', defaultValue: '1.1.1',description: "Enter the Version Number: ')
     }
 
     stages{

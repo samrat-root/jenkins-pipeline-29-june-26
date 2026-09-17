@@ -2,6 +2,7 @@ pipeline {
     agent any
     parameters {
         choice(name: 'FINAL_VERSION',choices: ['1.2.3','1.3.2','1.4.2'] ,description: 'Enter the Version Number: ')
+        booleanParam(name: 'Test-Approval', defaultValue: false, description: 'Approval')
     }
 
     stages{
@@ -26,6 +27,14 @@ pipeline {
         }
 
         stage('Deploy') {
+            when {
+                expression{
+                    params.Test-Approval = true
+                }
+            }
+            steps{
+                echo 'the Project was deployed with Approval'
+            }
             steps{
                 echo 'Deploying the Application '
                 withCredentials([

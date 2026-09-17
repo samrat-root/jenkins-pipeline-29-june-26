@@ -1,20 +1,19 @@
 pipeline {
     agent any
+    parameters {
+        choice(name: 'FINAL_VERSION',choices: ['1.2.3','1.3.2','1.4.2'] ,description: 'Enter the Version Number: ')
+        booleanParam(name: 'Test-Approval', defaultValue: false, description: 'Approval')
+    }
 
     stages{
 
         stage('Checkout'){
             steps{
-                git 'https://github.com/samrat-root/jenkins-pipeline-29-june-26.git'
+                checkout scm
             }
         }
 
         stage('Build') {
-            when{
-                expression{
-                    BRANCH_NAME == "main"
-                }
-            }
             steps{
                 echo 'Building the Application Code by Param'
             }
@@ -22,14 +21,28 @@ pipeline {
 
         stage('Test') {
             steps{
-                echo 'Testing the Project'
+                echo 'Testing the Project new'
+                echo "The Testing Tool version will be ${params.FINAL_VERSION}"
             }
         }
 
         stage('Deploy') {
+            when {
+                expression{
+                    params['Test-Approval'] == true
+                }
+            }
+            steps{
+                echo 'the Project was deployed with Approval'
+            }
             steps{
                 echo 'Deploying the Application '
-                echo 'Building the Application Code in param branch'
+                withCredentials([
+                    usernamePassword(credentialsId: 'demo-server-credentials', usernameVariable: 'USER', passwordVariable: 'PWD')
+               ]) {
+                    echo "The Credentials are: ${USER} and ${PWD}"
+                    }       
+                                     
             }
         }
     }

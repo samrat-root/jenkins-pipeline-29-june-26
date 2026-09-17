@@ -1,6 +1,8 @@
 pipeline {
     agent any
-   
+    tools {
+        maven 'Maven'
+    }
 
     stages{
 
@@ -13,6 +15,7 @@ pipeline {
         stage('Build') {
             steps{
                 echo 'Building the Application Code by Param'
+                sh "mvn install"
             }
         }
 
@@ -25,7 +28,8 @@ pipeline {
 
         stage('Deploy') {
             steps{
-                echo 'the Project was deployed with Approval'     
+                echo 'the Project is getting deployed'     
+                sh "sudo cp "
                                      
             }
         }

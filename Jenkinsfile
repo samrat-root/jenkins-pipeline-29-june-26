@@ -51,10 +51,15 @@ pipeline {
             steps {
 
                 script{
-                    def appVersion = "1.${env.BUILD_NUMBER}"
-                    echo "Version: ${appVersion}"
+                    def commitId = sh(
+                        script:"git rev-parse HEAD"
+                        returnStdout: true
+                    ).trim()
+
+                    echo "Commit: ${commitId}"
 
                 }
+                echo 'Compiling Application '
             
             }
         }

@@ -52,23 +52,14 @@ pipeline {
 
                 script{
                     
-                    if(env.BRANCH_NAME == 'main') {
-                        echo "It is a Production Deployment"
-                    } else{
-                        echo "It is a Development Deployment"
-                    }
+                    echo "Build Number = ${env.BUILD_NUMBER}"
+                    echo "Job Name = ${env.JOB_NAME}"
 
                 }
             
             }
         }
 
-        stage('Verify Deployment') {
-            steps {
-
-                echo 'Deployment Completed'
-            }
-        }
     }
 
 

@@ -51,8 +51,12 @@ pipeline {
             steps {
 
                 script{
-                    def name = 'Param'
-                    echo name
+                    
+                    if(env.BRANCH_NAME == 'main') {
+                        echo "It is a Production Deployment"
+                    } else{
+                        echo "It is a Development Deployment"
+                    }
 
                 }
             

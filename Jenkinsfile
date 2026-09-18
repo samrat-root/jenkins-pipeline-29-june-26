@@ -50,11 +50,11 @@ pipeline {
         stage('Deploy To Tomcat') {
             steps {
 
-                echo 'Deploying WAR'
+                def name = 'Param'
+                echo 'The Project is getting deployed'
+                echo name 
 
-                sh '''
-                sudo cp target/*.war ${DEPLOY_DIR}/
-                '''
+            
             }
         }
 

@@ -71,23 +71,5 @@ pipeline {
         }
     }
 
-    post {
 
-        always {
-
-            junit 'target/surefire-reports/*.xml'
-            echo 'Pipeline Finished'
-
-        }
-
-        success {
-
-            echo 'Application Successfully Built and Deployed'
-        }
-
-        failure {
-
-            echo 'Build Failed'
-        }
-    }
 }

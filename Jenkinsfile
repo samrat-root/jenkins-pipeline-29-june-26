@@ -34,7 +34,7 @@ pipeline {
         stage('Unit Test') {
             steps {
 
-                echo 'Running Test'
+                echo 'Running Tests'
 
             }
         }

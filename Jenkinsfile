@@ -52,7 +52,7 @@ pipeline {
 
                 script{
                     def commitId = sh(
-                        script:"git rev-parse HEAD"
+                        script: "git rev-parse HEAD"
                         returnStdout: true
                     ).trim()
 

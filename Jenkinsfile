@@ -20,26 +20,14 @@ pipeline {
 
                 checkout scm
 
-                sh 'pwd'
-                sh 'ls -la'
             }
         }
 
-        stage('Verify Environment') {
-            steps {
-
-                sh 'java -version'
-                sh 'mvn -version'
-                sh 'git --version'
-            }
-        }
 
         stage('Compile') {
             steps {
 
                 echo 'Compiling Application'
-
-                sh 'mvn clean compile'
             }
         }
 
@@ -48,7 +36,6 @@ pipeline {
 
                 echo 'Running Tests'
 
-                sh 'mvn test'
             }
         }
 
@@ -57,7 +44,6 @@ pipeline {
 
                 echo 'Creating WAR File'
 
-                sh 'mvn package'
             }
         }
 

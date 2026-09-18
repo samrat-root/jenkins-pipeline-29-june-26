@@ -52,7 +52,7 @@ pipeline {
 
                 script{
                     def appVersion = "1.${env.BUILD_NUMBER}"
-                    echo "Version: ${appversion}"
+                    echo "Version: ${appVersion}"
 
                 }
             

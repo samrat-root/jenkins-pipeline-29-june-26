@@ -50,10 +50,11 @@ pipeline {
         stage('Deploy To Tomcat') {
             steps {
 
-                def name = 'Param'
-                echo 'The Project is getting deployed'
-                echo name 
+                script{
+                    def name = 'Param'
+                    echo name
 
+                }
             
             }
         }

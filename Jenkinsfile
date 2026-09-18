@@ -51,10 +51,8 @@ pipeline {
             steps {
 
                 script{
-                    
-                    for(int i=1; i<=10; i++) {
-                        echo "This is Integration Number ; ${i}"
-                    }
+                    def appVersion = "1.${env.BUILD_NUMBER}"
+                    echo "Version: ${appversion}"
 
                 }
             
